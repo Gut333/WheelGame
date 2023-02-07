@@ -185,7 +185,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5520,9 +5520,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verticalForce: 400
   playerParticles: {fileID: 808210596}
-  yellowColor: {r: 0.9215687, g: 0.8352942, b: 0.06666667, a: 0}
-  purpleColor: {r: 0.53333336, g: 0.07058824, b: 0.95294124, a: 0}
-  pinkColor: {r: 0.9686275, g: 0, b: 0.48627454, a: 0}
+  yellowColor: {r: 0.9215687, g: 0.8352942, b: 0.06666667, a: 1}
+  purpleColor: {r: 0.53333336, g: 0.07058824, b: 0.95294124, a: 1}
+  pinkColor: {r: 0.9686275, g: 0, b: 0.48627454, a: 1}
   blueColor: {r: 0.20000002, g: 0.8588236, b: 0.9176471, a: 1}
 --- !u!1 &1245496576
 GameObject:

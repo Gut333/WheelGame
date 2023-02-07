@@ -55,53 +55,29 @@ public class PlayerController : MonoBehaviour
     void ChangeColor()
     {
         int randomNumber = Random.Range(0, 4);
-        switch(randomNumber){
-            case 1 :
-                playerSpriteR.color = yellowColor;
-                currentColor = "yellow";
-                break;
-
-            case 2 :
-                playerSpriteR.color = purpleColor;
-                currentColor = "purple";
-                break;
-
-            case 3 :
-                playerSpriteR.color = pinkColor;
-                currentColor = "pink";
-                break;
-
-            default :
-                playerSpriteR.color = blueColor;
-                currentColor = "blue";
-                break;
-                  
-            
+        if(randomNumber == 0)
+        {
+            playerSpriteR.color = yellowColor;
+            currentColor = "yellow";
         }
 
-        // if(randomNumber == 0)
-        // {
-        //     playerSpriteR.color = greenColor;
-        //     currentColor = "green";
-        // }
+        else if(randomNumber == 1)
+        {
+            playerSpriteR.color = purpleColor;
+            currentColor = "purple";
+        }
 
-        // else if(randomNumber == 1)
-        // {
-        //     playerSpriteR.color = orangeColor;
-        //     currentColor = "orange";
-        // }
+        else if(randomNumber == 2)
+        {
+            playerSpriteR.color = pinkColor;
+            currentColor = "pink";
+        }  
 
-        // else if(randomNumber == 2)
-        // {
-        //     playerSpriteR.color = redColor;
-        //     currentColor = "red";
-        // }  
-
-        // else if(randomNumber == 3)
-        // {
-        //     playerSpriteR.color = blueColor;
-        //     currentColor = "blue";
-        // }
+        else if(randomNumber == 3)
+        {
+            playerSpriteR.color = blueColor;
+            currentColor = "blue";
+        }
 
     }
 }
