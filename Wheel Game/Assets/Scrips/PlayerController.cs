@@ -6,21 +6,21 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float verticalForce = 300;
-    [SerializeField] private float restartDelay = 1f;
-    [SerializeField] private Color greenColor;
-    [SerializeField] private Color orangeColor;
-    [SerializeField] private Color redColor;
+    private float restartDelay = 1f;
+    [SerializeField] private ParticleSystem playerParticles;
+    [SerializeField] private Color yellowColor;
+    [SerializeField] private Color purpleColor;
+    [SerializeField] private Color pinkColor;
     [SerializeField] private Color blueColor;
     private string currentColor;
 
     private Rigidbody2D playerRigidB;
     private SpriteRenderer playerSpriteR;
-    private Color ballColor;
 
     void Start()
     {
         playerRigidB = GetComponent<Rigidbody2D>();
-        playerSpriteR = GetComponent<SpriteRenderer>();      
+        playerSpriteR = GetComponent<SpriteRenderer>();
         ChangeColor();
         
     }
@@ -30,8 +30,8 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            playerRigidB.AddForce(new Vector2(0f,verticalForce));
             playerRigidB.velocity = Vector2.zero;
+            playerRigidB.AddForce(new Vector2(0f,verticalForce));
         }        
     }
 
@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
         if(!collider.gameObject.CompareTag(currentColor))
         {
             gameObject.SetActive(false);
+            Instantiate(playerParticles, transform.position, Quaternion.identity);
             Invoke("RestartScene",restartDelay);
         }
               
@@ -54,31 +55,53 @@ public class PlayerController : MonoBehaviour
     void ChangeColor()
     {
         int randomNumber = Random.Range(0, 4);
-        Debug.Log(randomNumber);
+        switch(randomNumber){
+            case 1 :
+                playerSpriteR.color = yellowColor;
+                currentColor = "yellow";
+                break;
 
-        if(randomNumber == 0)
-        {
-            playerSpriteR.color = greenColor;
-            currentColor = "green";
+            case 2 :
+                playerSpriteR.color = purpleColor;
+                currentColor = "purple";
+                break;
+
+            case 3 :
+                playerSpriteR.color = pinkColor;
+                currentColor = "pink";
+                break;
+
+            default :
+                playerSpriteR.color = blueColor;
+                currentColor = "blue";
+                break;
+                  
+            
         }
 
-        else if(randomNumber == 1)
-        {
-            playerSpriteR.color = orangeColor;
-            currentColor = "orange";
-        }
+        // if(randomNumber == 0)
+        // {
+        //     playerSpriteR.color = greenColor;
+        //     currentColor = "green";
+        // }
 
-        else if(randomNumber == 2)
-        {
-            playerSpriteR.color = redColor;
-            currentColor = "red";
-        }  
+        // else if(randomNumber == 1)
+        // {
+        //     playerSpriteR.color = orangeColor;
+        //     currentColor = "orange";
+        // }
 
-        else if(randomNumber == 3)
-        {
-            playerSpriteR.color = blueColor;
-            currentColor = "blue";
-        }
+        // else if(randomNumber == 2)
+        // {
+        //     playerSpriteR.color = redColor;
+        //     currentColor = "red";
+        // }  
+
+        // else if(randomNumber == 3)
+        // {
+        //     playerSpriteR.color = blueColor;
+        //     currentColor = "blue";
+        // }
 
     }
 }

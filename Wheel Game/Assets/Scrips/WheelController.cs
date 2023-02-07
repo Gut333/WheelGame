@@ -20,6 +20,6 @@ public class WheelController : MonoBehaviour
 
     void Update()
     {
-        wheelRigidB.transform.Rotate(new Vector3(0.1f,0f,wheelVelocity));
+        wheelRigidB.transform.Rotate(new Vector3(0f,0f,wheelVelocity));
     }
 }
